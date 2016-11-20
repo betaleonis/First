@@ -13,8 +13,11 @@ Basic steps:
   * **Never** change the default selection of the dropdown of the branch to pull in the Pull dialog. If this is done, it will pull one remote branch into another completely messing up the repository.
 * Pushing to the remote branch:
   TBD
-* Resolving Conflicts on pull:
-  TBD
+* Resolving Conflicts on pull/merge:
+  1. Each file which has a conflict will be listed in the conflicts window on the lower left hand section.
+  2. Manually edit the section between the <<<< master branch and ending with the dev >>>> markers. Keep the needed code and remove the markers and the separator of ====
+  3. In the left bottom section of Sourcetree, stage the resolved file.
+
 
 
 
@@ -51,5 +54,5 @@ To merge the dev branch into the master, ensure that no one is using the master 
 15. Verify that the local master and origin/master history is showing the same commit on the HEAD. The master branch is now ready.
 16. Switch to the dev branch.
 17. Do a pull without rebase.
-18. Stage, Commit and Push the changes to dev.??
+18. Verify that this also resulted in a fast forward merge. Then push this commit to remote.
 19. Now the dev, origin/dev, master and origin/master should all have the same commit and be the HEAD.
