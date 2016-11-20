@@ -5,8 +5,9 @@ Basic steps:
 * To switch a branch :
   Using the left nav bar Branches-<branchname> doubleclick. A cirlce should appear next to the branch name.
 * To Commit a change :
-  1. Select the checkbox in the unstaged files section on lower left area (and doubleclicking it to add it to the staged area?)
-  2. Click the Commit button on the upper menubar. Type in the necessary comment in the bottom comments section, but *always* unselect "Push Changes immediately to origin"
+  1. Select the "Uncommited changes" in the history graph window to show the Staged/Unstaged file sections.
+  2. Select the checkbox in the unstaged files section on lower left area (and doubleclicking it to add it to the staged area?)
+  3. Click the Commit button on the upper menubar. Type in the necessary comment in the bottom comments section, but *always* unselect "Push Changes immediately to origin"
 * Pulling a remote dev branch:
   * If you have local commits yet to be merged and want the comments on each of those to be retained in the dev branch, or you dont want a merge commit to be generated locally then choose the "Rebase instead of Merge" checkbox on the Pull dialog.
   * If a dev --> master merge has been commited and synced to the master and now you are pulling the dev branch to have it updated to match the master, then leave the "Rebase instead of merge" unchecked.
