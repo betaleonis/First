@@ -32,3 +32,24 @@ When the local work is done and has to be pushed to the remote repo:
 
 When the local branch is ready to be pushed:
 1. Click the Push menubar button to push to remote.
+
+To merge the dev branch into the master, ensure that no one is using the master branch in this duration. Then:
+1. Switch to the master branch.
+2. Do a pull on the master branch. We are going to assume that we have no local commits on master waiting to go out. Hence just do a pull without the rebase option.
+3. Verify that the history shows local and origin on master to be the same.
+4. Switch to the dev branch.
+5. Ensure that there are no pending commits locally and if so, do the process for pushing of local dev changes to the remote dev branch. Then do a pull.
+6. Verify that the history shows local and origin are the same on the dev branch.
+7. Switch to the master branch.
+8. Click the merge menubar button.
+9. The merge dialog asks you to select the commit to merge into the current tree. This means that it is implicitly looking for the branch to merge into the current branch. Always select the topmost commit in the dev branch (which should be showing as dev & origin/dev.)
+10. *Never* choose a "Rebase instead of Merge" on the merge dialog.
+11. Select the "Create a commit even if merge resolved by fast forward commit"
+12. The merge should occur generating a local commit.
+13. If there are conflicts, those will be listed in the lower left section. Resolve them and then move it to the staged area and then commit the whole thing.
+14. Push the merge commit to remote.
+15. Verify that the local master and origin/master history is showing the same commit on the HEAD. The master branch is now ready.
+16. Switch to the dev branch.
+17. Do a pull without rebase.
+18. Stage, Commit and Push the changes to dev.??
+19. Now the dev, origin/dev, master and origin/master should all have the same commit and be the HEAD.
