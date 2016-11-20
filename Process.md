@@ -24,7 +24,7 @@ Basic steps:
     4. Click ok. All the chagnes should be reversed and the working folder files should return back to the selected commit state.
   * In case you wanted to roll back changes that have already exist on the remote repo, the operation to be used is a *Revert*.
     1. A revert creates a new commit unlike a Reset operation which changes the commit history and is therefore very safe.
-    2. In the History graph window select the commit you want to roll back to.
+    2. In the History graph window select the commit you want to roll back. Unlike a Reset operation, this does not mean that the commits succeding this are all going to be discarded. It only means that the changes done in the commit you have chosen to Revert will be reversed. The changes done in the succeeding commits will remain as they are. If multiple changes have to be reversed, then would suggest you start from the top most change and go on Reverting in a last in first out order, one by one.
     3. Rightclick and "Reverse Commit" option, confirm to generate the new commit.
     4. Rightclick the newly generated commit and Amend the last commit to and put in your desired commit reversal comment.
     5. Push the revert commit to remote.
