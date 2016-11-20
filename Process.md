@@ -73,7 +73,7 @@
 9. Click the merge menubar button.
 10. The merge dialog asks you to select the commit to merge into the current tree. This means that it is implicitly looking for the branch to merge into the current branch. Always select the topmost commit in the dev branch (which should be showing as dev & origin/dev.)
 11. *Never* choose a "Rebase instead of Merge" on the merge dialog.
-12. Select the "Create a commit even if merge resolved by fast forward commit"
+12. *Always* select the "Create a commit even if merge resolved by fast forward commit"
 13. The merge should occur generating a local commit.
 14. If there are conflicts, those will be listed in the lower left section. Resolve them and then move it to the staged area and then commit the whole thing.
 15. Push the merge commit to remote.
@@ -82,3 +82,8 @@
 18. Do a pull without rebase.
 19. Verify that this also resulted in a fast forward merge. Then push this commit to remote.
 20. Now the dev, origin/dev, master and origin/master should all have the same commit and be the HEAD.
+
+### To get back the whole repository to an older state.
+1. Rightclick on the commit representing the point of time where you want to recover. This could be a merge commit of dev to master of a previous release.
+2. Choose Branch option and enter the desired name of the new branch.
+3. The resulting branch should have recovered the old state of the branch.
