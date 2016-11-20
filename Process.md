@@ -1,7 +1,11 @@
 # Sourcetree working steps for Git
 
+## Guiding principles
+1. Never use Rebase on public branches. For eg when dev branch is checked out with some local commits, you can rebase dev with origin/dev. If one were to do the reverse, say rebase master with dev then the common dev branch, then it would mean that the master branch history, which already has been shared with other repo's has been rewritten and so will be out of sync.
+2. The above principle mandates that when merging public branches, you can only do a true merge commit. For e.g. merging the release branch into master. This also works well as a marker commit.
 
-## Basic steps
+
+## Typical basic operations
 
 ### To switch a branch :
   Using the left nav bar Branches-<branchname> doubleclick. A cirlce should appear next to the branch name.
@@ -39,8 +43,6 @@
   1. Each file which has a conflict will be listed in the conflicts window on the lower left hand section.
   2. Manually edit the section between the <<<< master branch and ending with the dev >>>> markers. Keep the needed code and remove the markers and the separator of ====
   3. In the left bottom section of Sourcetree, stage the resolved file.
-
-
 
 
 ## Workflows
@@ -87,3 +89,7 @@
 1. Rightclick on the commit representing the point of time where you want to recover. This could be a merge commit of dev to master of a previous release.
 2. Choose Branch option and enter the desired name of the new branch.
 3. The resulting branch should have recovered the old state of the branch.
+
+### Incorporating upstream changes into a feature branch.
+1. As always, if the feature branch is on a remote repo, then getting periodic changes from say dev into it, have to be through a merge commit.
+2. If feature branch is a local only branch, then rebase would also do.
