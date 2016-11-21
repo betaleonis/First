@@ -93,3 +93,8 @@
 ### Incorporating upstream changes into a feature branch.
 1. As always, if the feature branch is on a remote repo, then getting periodic changes from say dev into it, have to be through a merge commit.
 2. If feature branch is a local only branch, then rebase would also do.
+
+## To create a local branch from a remote branch.
+1. When a repo is cloned, only the master branch is created locally.
+2. If some other branch has to be locally created, then go to the Remotes section on the LHS Nav bar and select the remote branch you want to replicate.
+3. Rightclick checkout, just keep the local name the same as remote name and click ok.
