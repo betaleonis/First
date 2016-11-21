@@ -1,7 +1,11 @@
 # Sourcetree working steps for Git
 
+## Guiding principles
+1. Never use Rebase on public branches. For eg when dev branch is checked out with some local commits, you can rebase dev with origin/dev. If one were to do the reverse, say rebase master with dev then the common dev branch, then it would mean that the master branch history, which already has been shared with other repo's has been rewritten and so will be out of sync.
+2. The above principle mandates that when merging public branches, you can only do a true merge commit. For e.g. merging the release branch into master. This also works well as a marker commit.
 
-## Basic steps
+
+## Typical basic operations
 
 ### To switch a branch :
   Using the left nav bar Branches-<branchname> doubleclick. A cirlce should appear next to the branch name.
@@ -41,8 +45,6 @@
   3. In the left bottom section of Sourcetree, stage the resolved file.
 
 
-
-
 ## Workflows
   These would normally be followed in the order given below.
 
@@ -73,7 +75,7 @@
 9. Click the merge menubar button.
 10. The merge dialog asks you to select the commit to merge into the current tree. This means that it is implicitly looking for the branch to merge into the current branch. Always select the topmost commit in the dev branch (which should be showing as dev & origin/dev.)
 11. *Never* choose a "Rebase instead of Merge" on the merge dialog.
-12. Select the "Create a commit even if merge resolved by fast forward commit"
+12. *Always* select the "Create a commit even if merge resolved by fast forward commit"
 13. The merge should occur generating a local commit.
 14. If there are conflicts, those will be listed in the lower left section. Resolve them and then move it to the staged area and then commit the whole thing.
 15. Push the merge commit to remote.
@@ -82,3 +84,12 @@
 18. Do a pull without rebase.
 19. Verify that this also resulted in a fast forward merge. Then push this commit to remote.
 20. Now the dev, origin/dev, master and origin/master should all have the same commit and be the HEAD.
+
+### To get back the whole repository to an older state.
+1. Rightclick on the commit representing the point of time where you want to recover. This could be a merge commit of dev to master of a previous release.
+2. Choose Branch option and enter the desired name of the new branch.
+3. The resulting branch should have recovered the old state of the branch.
+
+### Incorporating upstream changes into a feature branch.
+1. As always, if the feature branch is on a remote repo, then getting periodic changes from say dev into it, have to be through a merge commit.
+2. If feature branch is a local only branch, then rebase would also do.
