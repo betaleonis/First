@@ -94,7 +94,11 @@
 1. As always, if the feature branch is on a remote repo, then getting periodic changes from say dev into it, have to be through a merge commit.
 2. If feature branch is a local only branch, then rebase would also do.
 
-## To create a local branch from a remote branch.
-1. When a repo is cloned, only the master branch is created locally.
-2. If some other branch has to be locally created, then go to the Remotes section on the LHS Nav bar and select the remote branch you want to replicate.
-3. Rightclick checkout, just keep the local name the same as remote name and click ok.
+
+## Troubleshooting
+
+### Push without a pull
+1. if a commit is pushed to remote without first doing a pull, and the remote has commits that your local branch did not have, then subsequent commits will start getting put on a detached HEAD. This can be seen as a commit with a HEAD tag in the History rather than the usual dev or origin/dev names.
+2. In such a situation, discard the current commits completely. This means first, any uncommited changes have to be discarded. The remaining will be local commits only, so a Reset branch to last common commit between the origin and local must be done.
+3. Then do a pull rebase to pull down the changes from the remote to the local. 
+3. Verify that the branch is showing local and remote in sync. For e.g. dev and origin/dev must be on the same commit.
